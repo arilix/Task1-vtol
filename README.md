@@ -478,7 +478,3 @@ ros2 topic pub /emergency_stop std_msgs/msg/Bool "{data: true}" --once
 Robot akan langsung berhenti dan misi dihentikan.
 
 ---
-
-## Lisensi
-
-Project ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
