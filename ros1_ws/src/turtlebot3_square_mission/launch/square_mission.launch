@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- TurtleBot3 Model -->
+  <arg name="model" default="burger" />
+  <env name="TURTLEBOT3_MODEL" value="$(arg model)" />
+
+  <!-- Parameter Misi -->
+  <arg name="side_length" default="2.0" />
+  <arg name="threshold" default="0.3" />
+  <arg name="linear_speed" default="0.2" />
+  <arg name="angular_speed" default="0.5" />
+  <arg name="rate_hz" default="20" />
+
+  <!-- Jalankan Gazebo World -->
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch" />
+
+  <!-- Jalankan Square Mission Node -->
+  <node pkg="turtlebot3_square_mission" type="square_mission.py" name="square_mission"
+        output="screen" required="true">
+    <param name="side_length" value="$(arg side_length)" />
+    <param name="threshold" value="$(arg threshold)" />
+    <param name="linear_speed" value="$(arg linear_speed)" />
+    <param name="angular_speed" value="$(arg angular_speed)" />
+    <param name="rate_hz" value="$(arg rate_hz)" />
+  </node>
+</launch>
